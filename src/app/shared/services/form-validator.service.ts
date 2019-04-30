@@ -14,6 +14,7 @@ export class FormValidatorService {
   hasOneUpperCaseLetter = false;
   hasOneNumber = false;
   hasOneSpecialChar = false;
+  isEmailValid = false;
 
 
 
@@ -38,6 +39,15 @@ export class FormValidatorService {
       }
       if (oneSpecialCharRegex.test(value)) {
         this.hasOneSpecialChar = true;
+      }
+    }
+  }
+  checkEmailValidation(value: string) {
+    this.isEmailValid = false;
+    const oneUpperCaseLetterRegex = new RegExp(regexPatterns.email);
+    if (value !== '') {
+      if (oneUpperCaseLetterRegex.test(value)) {
+        this.isEmailValid = true;
       }
     }
   }

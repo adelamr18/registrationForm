@@ -1,9 +1,22 @@
-<section class="registration-form-container">
-  <app-form-textbox (passwordChange)="changedPassword($event)" [firstInputType]="'email'" [secondInputType]="'password'"></app-form-textbox>
-  <app-form-errors [isAboveEightChars]="isAboveEightChars"  [hasOneLowerCaseLetter]="hasOneLowerCaseLetter" [hasOneUpperCaseLetter]="hasOneUpperCaseLetter"
-  [hasOneNumber]="hasOneNumber" [hasOneSpecialChar]="hasOneSpecialChar" >
-
-  </app-form-errors>
-
-
-</section>
+<header>
+  <nav>
+    <mat-toolbar color="primary">
+      <span>Login</span>
+    </mat-toolbar>
+  </nav>
+</header>
+<article class="registration-form">
+  <section class="register-form-controls">
+    <app-form-textbox (emailChange)="changedEmail($event)" (passwordChange)="changedPassword($event)"
+      [firstInputType]="'email'" [secondInputType]="'password'"></app-form-textbox>
+  </section>
+  <section class="register-form-errors">
+    <app-form-errors [isAboveEightChars]="isAboveEightChars" [hasOneLowerCaseLetter]="hasOneLowerCaseLetter"
+      [hasOneUpperCaseLetter]="hasOneUpperCaseLetter" [hasOneNumber]="hasOneNumber"
+      [hasOneSpecialChar]="hasOneSpecialChar">
+    </app-form-errors>
+  </section>
+  <div class="button-container">
+    <button [disabled]="!isFormValid" color="primary" mat-raised-button>{{submit}}</button>
+  </div>
+</article>

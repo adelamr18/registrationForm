@@ -1,8 +1,19 @@
 .error-message-with-icon{
   display: flex;
   margin-left: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .error-message{
   margin-left: 0.5rem;
+  color:red;
+}
+.fa-check{
+  color:red;
+}
+.fa-times{
+  color:green;
+}
+.change-error-message{
+  margin-left: 0.5rem;
+  color:green;
 }

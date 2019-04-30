@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormControl, FormGroupDirective, NgForm } from "@angular/forms";
 import { FormValidatorService } from '../../services/form-validator.service';
 
@@ -15,6 +15,8 @@ export class FormTextboxComponent implements OnInit {
   @Input() firstInputType: string;
   @Input() secondInputType: string;
   @Output() passwordChange = new EventEmitter();
+  @Output() emailChange = new EventEmitter();
+  emailError: string;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -25,5 +27,8 @@ export class FormTextboxComponent implements OnInit {
   get f() { return this.registerForm.controls; }
   onPasswordChange(event) {
     this.passwordChange.emit(event.target.value);
+  }
+  onEmailChange(event) {
+    this.emailChange.emit(event.target.value);
   }
 }

@@ -1,0 +1,10 @@
+.registration-form{
+  display: flex;
+  flex-direction: column;
+}
+button{
+  width:100%;
+}
+.button-container{
+  margin: 0rem 1.5rem;
+}

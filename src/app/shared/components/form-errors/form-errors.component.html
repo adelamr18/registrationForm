@@ -1,37 +1,35 @@
-<section class="form-errors">
   <div class="error-message-with-icon">
     <div class="error-icon">
       <div *ngIf="isAboveEightChars"><i class="fas fa-check"></i></div>
       <div *ngIf="!isAboveEightChars"><i class="fas fa-times"></i></div>
     </div>
-    <div class="error-message">{{minChars}}</div>
+    <div [ngClass]="{'change-error-message':isAboveEightChars}" class="error-message">{{minChars}}</div>
   </div>
   <div class="error-message-with-icon">
     <div class="error-icon">
       <div *ngIf="hasOneLowerCaseLetter"><i class="fas fa-check"></i></div>
       <div *ngIf="!hasOneLowerCaseLetter"><i class="fas fa-times"></i></div>
     </div>
-    <div class="error-message">{{minLowerCaseLetter}}</div>
+    <div  [ngClass]="{'change-error-message':hasOneLowerCaseLetter}"  class="error-message">{{minLowerCaseLetter}}</div>
   </div>
   <div class="error-message-with-icon">
     <div class="error-icon">
       <div *ngIf="hasOneUpperCaseLetter"><i class="fas fa-check"></i></div>
       <div *ngIf="!hasOneUpperCaseLetter"><i class="fas fa-times"></i></div>
     </div>
-    <div class="error-message">{{minUpperCaseLetter}}</div>
+    <div [ngClass]="{'change-error-message':hasOneUpperCaseLetter}"  class="error-message">{{minUpperCaseLetter}}</div>
   </div>
   <div class="error-message-with-icon">
     <div class="error-icon">
       <div *ngIf="hasOneNumber"><i class="fas fa-check"></i></div>
       <div *ngIf="!hasOneNumber"><i class="fas fa-times"></i></div>
     </div>
-    <div class="error-message">{{minNumber}}</div>
+    <div [ngClass]="{'change-error-message':hasOneNumber}" class="error-message">{{minNumber}}</div>
   </div>
   <div class="error-message-with-icon">
     <div class="error-icon">
       <div *ngIf="hasOneSpecialChar"><i class="fas fa-check"></i></div>
       <div *ngIf="!hasOneSpecialChar"><i class="fas fa-times"></i></div>
     </div>
-    <div class="error-message">{{minSpecialChar}}</div>
+    <div [ngClass]="{'change-error-message':hasOneSpecialChar}" class="error-message">{{minSpecialChar}}</div>
   </div>
-</section>
