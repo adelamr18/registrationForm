@@ -1,12 +1,12 @@
   <form [formGroup]="registerForm" >
     <mat-form-field class ="">
-      <input matInput  name="email" (change)="onEmailChange($event)"  formControlName="emailAccount"  type="{{firstInputType}}" placeholder="E-Mail" >
+      <input matInput  name="email" (change)="onEmailChange($event)"  formControlName="emailAccount"  type="{{firstInputType}}" placeholder={{emailPlaceHolder}} >
       <mat-error>
-        <span *ngIf="!registerForm.get('emailAccount').valid && registerForm.get('emailAccount').touched">Please enter a valid email</span>
+        <span *ngIf="!isEmailValid">{{emailError}}</span>
     </mat-error>
     </mat-form-field>
     <mat-form-field class= "password-textbox">
-      <input type="{{secondInputType}}" (change)="onPasswordChange($event)" formControlName="inputPassword" name="password"  matInput placeholder="Password">
+      <input type="{{secondInputType}}" (change)="onPasswordChange($event)" formControlName="inputPassword" name="password"  matInput placeholder="{{passwordPlaceHolder}}">
     </mat-form-field>
   </form>
 

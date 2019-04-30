@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormValidatorService } from '../shared/services/form-validator.service';
-import { buttonTexts } from '../shared/constants/defines'
+import { buttonTexts, headerTexts } from '../shared/constants/defines';
 
 @Component({
   selector: 'app-registration-form',
@@ -16,15 +16,17 @@ export class RegistrationFormComponent implements OnInit {
   isEmailValid = false;
   isFormValid = false;
   submit: string;
+  headerText: string;
 
 
-  constructor( private formValidator: FormValidatorService) { }
+  constructor(private formValidator: FormValidatorService) { }
 
   ngOnInit() {
     this.submit = buttonTexts.submit;
+    this.headerText = headerTexts.login;
   }
 
-  changedPassword(value) {
+  changedPassword(value: string): void {
     this.formValidator.checkPasswordValidation(value);
     this.isAboveEightChars = this.formValidator.isAboveEightChars;
     this.hasOneLowerCaseLetter = this.formValidator.hasOneLowerCaseLetter;
@@ -33,23 +35,19 @@ export class RegistrationFormComponent implements OnInit {
     this.hasOneSpecialChar = this.formValidator.hasOneSpecialChar;
     this.checkIsFormValid();
   }
-  changedEmail(value) {
+  changedEmail(value: string): void {
     this.formValidator.checkEmailValidation(value);
     this.isEmailValid = this.formValidator.isEmailValid;
     this.checkIsFormValid();
   }
-  checkIsFormValid() {
+  checkIsFormValid(): void {
     if (this.isAboveEightChars && this.hasOneLowerCaseLetter && this.hasOneUpperCaseLetter &&
       this.hasOneNumber && this.hasOneSpecialChar && this.isEmailValid
     ) {
       this.isFormValid = true;
-    }
-    else {
+    } else {
       this.isFormValid = false;
     }
-
-
-
   }
 
 

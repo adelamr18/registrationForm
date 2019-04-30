@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, FormControl, FormGroupDirective, NgForm } from "@angular/forms";
+import { FormGroup, Validators, FormBuilder } from "@angular/forms";
 import { FormValidatorService } from '../../services/form-validator.service';
+import { placeHolders, alerts } from '../../constants/defines';
+
 
 
 @Component({
@@ -17,18 +19,24 @@ export class FormTextboxComponent implements OnInit {
   @Output() passwordChange = new EventEmitter();
   @Output() emailChange = new EventEmitter();
   emailError: string;
+  emailPlaceHolder: string;
+  passwordPlaceHolder: string;
+  isEmailValid = false;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       emailAccount: [null, Validators.compose([Validators.required, Validators.email])],
       inputPassword: ['']
     });
+    this.emailPlaceHolder = placeHolders.email;
+    this.passwordPlaceHolder = placeHolders.password;
+    this.emailError = alerts.emailAlert;
   }
-  get f() { return this.registerForm.controls; }
-  onPasswordChange(event) {
+  onPasswordChange(event: any): void {
     this.passwordChange.emit(event.target.value);
+    this.isEmailValid = this.formValidator.isEmailValid;
   }
-  onEmailChange(event) {
+  onEmailChange(event: any): void {
     this.emailChange.emit(event.target.value);
   }
 }

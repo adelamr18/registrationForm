@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { regexPatterns } from '../constants/defines'
-import { Subject } from 'rxjs';
+import { regexPatterns } from '../constants/defines';
 
 
 @Injectable({
@@ -18,7 +17,7 @@ export class FormValidatorService {
 
 
 
-  checkPasswordValidation(value: string) {
+  checkPasswordValidation(value: string): void {
     this.resetFlags();
     const oneLowerCaseLetterRegex = new RegExp(regexPatterns.oneLowerCaseLetter);
     const oneUpperCaseLetterRegex = new RegExp(regexPatterns.oneUpperCaseLetter);
@@ -42,7 +41,7 @@ export class FormValidatorService {
       }
     }
   }
-  checkEmailValidation(value: string) {
+  checkEmailValidation(value: string): void {
     this.isEmailValid = false;
     const oneUpperCaseLetterRegex = new RegExp(regexPatterns.email);
     if (value !== '') {
@@ -52,7 +51,7 @@ export class FormValidatorService {
     }
   }
 
-  resetFlags() {
+  resetFlags(): void {
     this.isAboveEightChars = false;
     this.hasOneLowerCaseLetter = false;
     this.hasOneUpperCaseLetter = false;

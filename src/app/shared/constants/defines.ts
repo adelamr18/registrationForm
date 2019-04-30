@@ -17,4 +17,10 @@ export const regexPatterns = {
 export const buttonTexts = {
   submit: 'Submit'
 };
-
+export const headerTexts = {
+  login: 'Login'
+};
+export const placeHolders = {
+  email: 'E-Mail',
+  password: 'Password'
+};

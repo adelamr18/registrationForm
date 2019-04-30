@@ -25,7 +25,7 @@ export class FormErrorsComponent implements OnInit {
     this.initializeErrorMessages();
   }
 
-  initializeErrorMessages() {
+  initializeErrorMessages(): void {
     this.minChars = alerts.minEightCharsAlert;
     this.minLowerCaseLetter = alerts.oneLowerCaseLetterAlert;
     this.minUpperCaseLetter = alerts.oneUpperCaseLetterAlert;
