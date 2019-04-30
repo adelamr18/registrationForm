@@ -1,3 +1,12 @@
-<p>
-  form-textbox works!
-</p>
+  <form [formGroup]="registerForm" >
+    <mat-form-field class ="">
+      <input matInput  name="email"  formControlName="emailAccount"  type="{{firstInputType}}" placeholder="E-Mail" >
+      <mat-error>
+        <span *ngIf="!registerForm.get('emailAccount').valid && registerForm.get('emailAccount').touched">Please enter a valid email</span>
+    </mat-error>
+    </mat-form-field>
+    <mat-form-field class= "password-textbox">
+      <input type="{{secondInputType}}" (change)="onPasswordChange($event)" formControlName="inputPassword" name="password"  matInput placeholder="Password">
+    </mat-form-field>
+  </form>
+

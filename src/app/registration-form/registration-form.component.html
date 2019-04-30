@@ -1,0 +1,9 @@
+<section class="registration-form-container">
+  <app-form-textbox (passwordChange)="changedPassword($event)" [firstInputType]="'email'" [secondInputType]="'password'"></app-form-textbox>
+  <app-form-errors [isAboveEightChars]="isAboveEightChars"  [hasOneLowerCaseLetter]="hasOneLowerCaseLetter" [hasOneUpperCaseLetter]="hasOneUpperCaseLetter"
+  [hasOneNumber]="hasOneNumber" [hasOneSpecialChar]="hasOneSpecialChar" >
+
+  </app-form-errors>
+
+
+</section>

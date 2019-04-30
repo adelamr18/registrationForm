@@ -1,0 +1,8 @@
+.error-message-with-icon{
+  display: flex;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+.error-message{
+  margin-left: 0.5rem;
+}
