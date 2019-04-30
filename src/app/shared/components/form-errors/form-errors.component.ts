@@ -12,10 +12,15 @@ export class FormErrorsComponent implements OnInit {
   minUpperCaseLetter: string;
   minNumber: string;
   minSpecialChar: string;
+  /** flag to indicate whether password input is above 8 characters */
   @Input() isAboveEightChars: boolean;
+  /** flag to indicate whether password input has one lowercase letter */
   @Input() hasOneLowerCaseLetter: boolean;
+  /** flag to indicate whether password input has one uppercase letter */
   @Input() hasOneUpperCaseLetter: boolean;
+  /** flag to indicate whether password input has one number */
   @Input() hasOneNumber: boolean;
+  /** flag to indicate whether password input has one special character */
   @Input() hasOneSpecialChar: boolean;
 
 
@@ -24,7 +29,10 @@ export class FormErrorsComponent implements OnInit {
   ngOnInit() {
     this.initializeErrorMessages();
   }
-
+  /**
+  *This is the initializeErrorMessages function
+  *that sets error messages for password input
+  */
   initializeErrorMessages(): void {
     this.minChars = alerts.minEightCharsAlert;
     this.minLowerCaseLetter = alerts.oneLowerCaseLetterAlert;

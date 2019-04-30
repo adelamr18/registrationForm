@@ -38,6 +38,7 @@ export class FormTextboxComponent implements OnInit {
     this.emailRequiredAlert = alerts.emailRequired;
     this.passwordRequiredAlert = alerts.passwordRequired;
   }
+
   onPasswordChange(event: any): void {
     this.passwordRequired = false;
     if (event.target.value) {

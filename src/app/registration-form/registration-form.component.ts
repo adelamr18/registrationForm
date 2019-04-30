@@ -25,7 +25,11 @@ export class RegistrationFormComponent implements OnInit {
     this.submit = buttonTexts.submit;
     this.headerText = headerTexts.login;
   }
-
+  /**
+* This is the changedPassword function
+* @param value This is the typed password which the user inputs
+* that sets the needed flags that check for password validation
+*/
   changedPassword(value: string): void {
     this.formValidator.checkPasswordValidation(value);
     this.isAboveEightChars = this.formValidator.isAboveEightChars;
@@ -35,11 +39,19 @@ export class RegistrationFormComponent implements OnInit {
     this.hasOneSpecialChar = this.formValidator.hasOneSpecialChar;
     this.checkIsFormValid();
   }
+  /**
+* This is the changedEmail function
+* @param value This is the typed email which the user inputs
+* that sets the needed flags that check for email validation
+*/
   changedEmail(value: string): void {
     this.formValidator.checkEmailValidation(value);
     this.isEmailValid = this.formValidator.isEmailValid;
     this.checkIsFormValid();
   }
+/**
+*  This is the checkIsFormValid function
+* that sets the needed flags that for checking if the form is valid or not*/
   checkIsFormValid(): void {
     if (this.isAboveEightChars && this.hasOneLowerCaseLetter && this.hasOneUpperCaseLetter &&
       this.hasOneNumber && this.hasOneSpecialChar && this.isEmailValid

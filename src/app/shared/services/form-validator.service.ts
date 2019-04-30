@@ -16,7 +16,11 @@ export class FormValidatorService {
   isEmailValid = false;
 
 
-
+  /**
+* This is the checkPasswordValidation function
+* @param value This is the passed value of the inputted password
+* sets the needed flags for the inputted password upon testing by numerous regex patterns to identify the needed cases
+*/
   checkPasswordValidation(value: string): void {
     this.resetFlags();
     const oneLowerCaseLetterRegex = new RegExp(regexPatterns.oneLowerCaseLetter);
@@ -41,6 +45,11 @@ export class FormValidatorService {
       }
     }
   }
+    /**
+* This is the checkEmailValidation function
+* @param value This is the passed value of the inputted email
+* sets the needed flags for the inputted email upon testing by numerous regex patterns to identify the needed cases
+*/
   checkEmailValidation(value: string): void {
     this.isEmailValid = false;
     const oneUpperCaseLetterRegex = new RegExp(regexPatterns.email);
