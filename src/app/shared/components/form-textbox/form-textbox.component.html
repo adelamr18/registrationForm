@@ -2,11 +2,17 @@
     <mat-form-field class ="">
       <input matInput  name="email" (change)="onEmailChange($event)"  formControlName="emailAccount"  type="{{firstInputType}}" placeholder={{emailPlaceHolder}} >
       <mat-error>
-        <span *ngIf="!isEmailValid">{{emailError}}</span>
+        <span *ngIf="!isEmailValid">{{emailValidationError}}</span>
+    </mat-error>
+    <mat-error>
+        <span *ngIf="emailRequired">{{emailRequiredAlert}}</span>
     </mat-error>
     </mat-form-field>
     <mat-form-field class= "password-textbox">
       <input type="{{secondInputType}}" (change)="onPasswordChange($event)" formControlName="inputPassword" name="password"  matInput placeholder="{{passwordPlaceHolder}}">
+      <mat-error>
+          <span *ngIf="passwordRequired">{{passwordRequiredAlert}}</span>
+      </mat-error>
     </mat-form-field>
   </form>
 

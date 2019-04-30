@@ -4,7 +4,9 @@ export const alerts = {
   oneUpperCaseLetterAlert: ' Password should contain one uppercase letter',
   oneNumberAlert: 'Password should contain one number',
   oneSpecialCharacterAlert: 'Password should contain one special character',
-  emailAlert: 'Please enter a valid email'
+  emailAlert: 'Please enter a valid email',
+  emailRequired: 'Email is required',
+  passwordRequired: 'Password is required'
 };
 
 export const regexPatterns = {

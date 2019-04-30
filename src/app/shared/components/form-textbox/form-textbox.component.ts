@@ -18,25 +18,42 @@ export class FormTextboxComponent implements OnInit {
   @Input() secondInputType: string;
   @Output() passwordChange = new EventEmitter();
   @Output() emailChange = new EventEmitter();
-  emailError: string;
+  emailValidationError: string;
   emailPlaceHolder: string;
   passwordPlaceHolder: string;
   isEmailValid = false;
+  passwordRequired = false;
+  emailRequired = false;
+  emailRequiredAlert: string;
+  passwordRequiredAlert: string;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       emailAccount: [null, Validators.compose([Validators.required, Validators.email])],
-      inputPassword: ['']
+      inputPassword: ['', Validators.compose([Validators.required])]
     });
     this.emailPlaceHolder = placeHolders.email;
     this.passwordPlaceHolder = placeHolders.password;
-    this.emailError = alerts.emailAlert;
+    this.emailValidationError = alerts.emailAlert;
+    this.emailRequiredAlert = alerts.emailRequired;
+    this.passwordRequiredAlert = alerts.passwordRequired;
   }
   onPasswordChange(event: any): void {
-    this.passwordChange.emit(event.target.value);
-    this.isEmailValid = this.formValidator.isEmailValid;
+    this.passwordRequired = false;
+    if (event.target.value) {
+      this.passwordChange.emit(event.target.value);
+    } else {
+      this.passwordRequired = true;
+    }
   }
   onEmailChange(event: any): void {
-    this.emailChange.emit(event.target.value);
+    this.emailRequired = false;
+    if (event.target.value) {
+      this.emailChange.emit(event.target.value);
+      this.isEmailValid = this.formValidator.isEmailValid;
+    } else {
+      this.emailRequired = true;
+    }
+
   }
 }
